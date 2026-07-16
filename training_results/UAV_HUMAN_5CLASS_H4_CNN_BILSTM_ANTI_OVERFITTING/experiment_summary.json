@@ -1,0 +1,74 @@
+{
+  "experiment_name": "UAV_HUMAN_5CLASS_H4_CNN_BILSTM_ANTI_OVERFITTING",
+  "data_dir": "/kaggle/input/datasets/wafabila/output-uav-human-5-clases/preprocessed_final/uav_human_5_classes/h4_yolo_detection_yolo26_pose_seq90",
+  "output_dir": "/kaggle/working/training_results/UAV_HUMAN_5CLASS_H4_CNN_BILSTM_ANTI_OVERFITTING",
+  "classes": [
+    "applaud",
+    "wave_hands",
+    "punch_with_fists",
+    "squat",
+    "step_on_the_spot_walk"
+  ],
+  "input_shape": [
+    90,
+    51
+  ],
+  "normalization": "COCO-17 hip-centered and torso-scale; confidence retained",
+  "anti_overfitting": {
+    "subject_wise_split": true,
+    "augmentation": true,
+    "xy_noise_std": 0.015,
+    "max_temporal_shift": 4,
+    "frame_mask_ratio": 0.06,
+    "keypoint_dropout_rate": 0.03,
+    "l2_regularization": 0.0003,
+    "dense_dropout": 0.5,
+    "early_stopping_patience": 12,
+    "reduce_lr_patience": 4,
+    "model_parameters": 126629
+  },
+  "split": {
+    "method": "GroupShuffleSplit by subject_ids",
+    "train_ratio": 0.7,
+    "validation_ratio": 0.15,
+    "test_ratio": 0.15,
+    "train_sequences": 2650,
+    "validation_sequences": 543,
+    "test_sequences": 441,
+    "train_subjects": 66,
+    "validation_subjects": 14,
+    "test_subjects": 15,
+    "subject_leakage": 0
+  },
+  "training": {
+    "max_epochs": 100,
+    "best_epoch_by_val_loss": 20,
+    "batch_size": 64,
+    "learning_rate": 0.0005,
+    "class_weight": {
+      "0": 0.8862876254180602,
+      "1": 0.916955017301038,
+      "2": 0.9044368600682594,
+      "3": 2.548076923076923,
+      "4": 0.7794117647058824
+    }
+  },
+  "overfitting_check": {
+    "train_accuracy_best_epoch": 0.8381131887435913,
+    "validation_accuracy_best_epoch": 0.8250460624694824,
+    "train_validation_gap": 0.013067126274108887,
+    "gap_status": "RENDAH"
+  },
+  "test_metrics": {
+    "loss": 0.7418469190597534,
+    "accuracy": 0.8208616780045351,
+    "macro_precision": 0.8358401771743977,
+    "macro_recall": 0.8447818539199019,
+    "macro_f1": 0.8132265828632175,
+    "weighted_precision": 0.8420142091168905,
+    "weighted_recall": 0.8208616780045351,
+    "weighted_f1": 0.8018746591543434
+  },
+  "model_path": "/kaggle/working/training_results/UAV_HUMAN_5CLASS_H4_CNN_BILSTM_ANTI_OVERFITTING/final_model.keras",
+  "best_model_path": "/kaggle/working/training_results/UAV_HUMAN_5CLASS_H4_CNN_BILSTM_ANTI_OVERFITTING/best_model.keras"
+}

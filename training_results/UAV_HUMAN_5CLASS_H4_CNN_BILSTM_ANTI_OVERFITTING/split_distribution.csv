@@ -1,0 +1,16 @@
+split,label,class,sequences
+train,0,applaud,598
+train,1,wave_hands,578
+train,2,punch_with_fists,586
+train,3,squat,208
+train,4,step_on_the_spot_walk,680
+validation,0,applaud,119
+validation,1,wave_hands,125
+validation,2,punch_with_fists,121
+validation,3,squat,37
+validation,4,step_on_the_spot_walk,141
+test,0,applaud,101
+test,1,wave_hands,97
+test,2,punch_with_fists,102
+test,3,squat,25
+test,4,step_on_the_spot_walk,116
